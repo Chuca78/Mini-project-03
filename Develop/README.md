@@ -1,32 +1,14 @@
-<!-- todo: write README -->
-
-# <Your-Project-Title>
+# <Mini-project-03_Random-password-generator >
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-
-## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+This is the mini project 03 for the UT Austin coding boot camp. I was given the index.html, style.css, and a basic framework in the script.js for a website that only showed text and styling, with no functionality. This type of project is called an "on the job ticket" where I was given existing code and the challenge was to refactor the code to make the website work. The challenge for this project was to create a random password generator that accepts length and character requirements from the user. First I created a prompt for the length of password (within 8 and 128 characters) and used a window alert to tell the user if the length was accepted. Next I created user prompts for the four types of characters that the password could include. Lastly I created the random password generator that ensures that the user gets at least one of each type of character selected.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+This website is designed to show my proficiency in "on the job tickets" and my ability to refactor existing code while satisfying the user story and acceptance criteria. This website can be used to generate random passwords of lengths between 8 and 128 characters, while using user input to include characters of their choice (choice of lowercase, uppercase, numbers, and special characters).The external URL for this study guide is:
+
+<!-- todo: provide URL and screenshot of website -->
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
@@ -36,34 +18,18 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+JavaScript math.random tutorial
+https://www.w3schools.com/js/js_random.asp
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+JavaScript window object tutorials (for prompt, confirm, and alert)
+https://www.w3schools.com/jsref/obj_window.asp
 
-If you followed tutorials, include links to those here as well.
+Foolish Developer - Random Password Generator using Javascript
+https://dev.to/code_mystery/random-password-generator-using-javascript-6a
+
+Geeks For Geeks - How to Generate a Random Password using JavaScript ?
+https://www.geeksforgeeks.org/how-to-generate-a-random-password-using-javascript/
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+Please refer to the MIT LICENSE in this repo.
