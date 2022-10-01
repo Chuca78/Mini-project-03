@@ -1,104 +1,107 @@
 
-
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
-
-// similar code:
-// var password=document.getElementById("password");
-// function genPassword() {
-// var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// var passwordLength = 12;
-// var password = "";
-// for (var i = 0; i <= passwordLength; i++) {
-//   var randomNumber = Math.floor(Math.random() * chars.length);
-//   password += chars.substring(randomNumber, randomNumber +1);
-// }
-//     document.getElementById("password").value = password;
-
-// }
-
-
+// todo: clean up indentations and formatting
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// user prompt for password length
+function generatePassword(lengthChoice) {
+    // Ask user for their choice
+    var lengthChoice = window.prompt("Password length? (between 8 and 128 characters):");
+    // If user chooses outside of length requirements, prompt for correct length and restart function
+    if (lengthChoice < 8 || lengthChoice > 128) {
+        window.alert("Does not meet length requirement")
+        generatePassword();
+    }
+    else{
+      window.alert("Password length: " + lengthChoice);
+    }
 
- // todo: fix random generator function
-function generatePassword(){
-  
-  str = "";
-  var numbers = "0123456789";
-  var lower = "abcdefghijklmnopqrstuvwxyz";
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var special = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+    if (lengthChoice){
+        // todo: clean up this section
+  // Ask user for their character choice
+    // var characterType = function() {
+        // var characters = ["lower", "upper", "numbers", "special"]
+        // for (let index = 0; index < characters.length; index++) {
+        //     const element = characters[index];
+        //     console.log(element);
 
-  var chars = str.concat(numbers, lower, upper, special);
+            var numberChar = confirm("Include numbers?");
+                // window.alert("Characters included: numbers");
+            var lowerChar = confirm("Include lowercase?");
+                // window.alert("Characters included: lowercase");
+            var upperChar = confirm("Include uppercase?");
+                // window.alert("Characters included: uppercase");
+            var specialChar = confirm("Include special characters?");
+                // window.alert("Characters included: special");
+            // }
+    }
 
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * chars.length);
-    password += chars.substring(randomNumber, randomNumber +1);
-    console.log(password);
-   }
+  // conditional to check that user selects at least one character type
+  if ([specialChar, numberChar, lowerChar, upperChar].includes(true))
+
+
+//   todo: rename arrays
+    //Array to store types of characters to include in password
+    var chosenChar = [];
+
+    //Array to contain one of each type of chosen character to ensure each will be used
+    var guaranteedChar = [];
+
+//   todo: refactor and simplify
+  //Conditional statements that add array of each type of character into array of possible characters based on user input and pushes new random character to guaranteedCharacters.
+  if (specialChar) {
+    chosenChar = chosenChar.concat(special);
+    guaranteedChar.push(
+      special[Math.floor(Math.random() * special.length)]
+    );
+  }
+  if (numberChar) {
+    chosenChar = chosenChar.concat(numbers);
+    guaranteedChar.push(
+        numbers[Math.floor(Math.random() * numbers.length)]
+    );
+  }
+  if (lowerChar) {
+    chosenChar = chosenChar.concat(lowercase);
+    guaranteedChar.push(
+        lowercase[
+        Math.floor(Math.random() * lowercase.length)
+      ]
+    );
+  }
+  if (upperChar) {
+    chosenChar = chosenChar.concat(uppercase);
+    guaranteedChar.push(
+        uppercase[
+        Math.floor(Math.random() * uppercase.length)
+      ]
+    );
+  }
+
+//   todo: rename and refactor
+  //For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
+  var randomChar = [];
+
+//   todo: fix length of password
+  for (var i = 0; i < lengthChoice; i++) {
+    var index = Math.floor(Math.random() * chosenChar.length);
+    randomChar.push(chosenChar[index]);
+  }
+  var replacedPosition = {};
+  //While loop to ensure an index position that has already been replaced with a guaranteed character is not replaced with another guaranteed character.
+  while (guaranteedChar.length > 0) {
+    var replaceChar = Math.floor(Math.random() * randomChar.length);
+    if (!replacedPosition[replaceChar]) {
+      randomChar[replaceChar] = guaranteedChar.pop();
+      replacedPosition[replaceChar] = true;
+    }
+  }
+  return randomChar.join("");
 }
 
-
-// working code
-// todo: tie passLength and characterType functions to the generatePassword function
-// user prompts for password length and character selection
-// var passLength = function() {
-//     // Ask user for their choice
-//     var lengthChoice = window.prompt("Password length (between 8 and 128 characters):");
-//     // If user chooses outside of length requirements, prompt for correct length
-//     if (lengthChoice < 8 || lengthChoice > 128) {
-//         window,alert("Does not meet length requirement")
-//         passLength();
-//     }
-//     else{
-//       window.alert("Password length: " + lengthChoice);
-//     }
-// }
-// // Ask user for their character choice
-// var characterType = function() {
-    
-//     var characters = ["lower", "upper", "numbers", "special"]
-//     for (let index = 0; index < characters.length; index++) {
-//         const element = characters[index];
-//         console.log(element);
-
-//         var characterChoice = window.prompt("Include: " + element + " ?  (y/n)");
-//         if (characterChoice === "yes" ||
-//             characterChoice === "y"){
-//             window.alert("Characters included: " + element);
-//         }
-//         else if(characterChoice === "no"||
-//                 characterChoice === "n"){
-//                 window.alert("Characters not included: " + element)
-//         }
-//         else{
-//             window.alert("Not a valid choice")
-//             characterType();
-//         }
-//     }
-// }
-
-
-
 // Write password to the #password input
-function writePassword(){
+function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -108,6 +111,8 @@ function writePassword(){
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-// passLength()
-// characterType()
+// arrays of the characters
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var special = ["!","\\","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
