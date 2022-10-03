@@ -1,6 +1,4 @@
 
-// todo: clean up formatting
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -28,57 +26,35 @@ if (lengthChoice){
 // checks that user selects at least one character type
 if ([specialChar, numberChar, lowerChar, upperChar].includes(true))
 
+//  stores types of characters user selected for password
+var passChar = [];
 
-//   todo: rename arrays
-//Array to store types of characters to include in password
-var chosenChar = [];
-//Array to contain one of each type of chosen character to ensure each will be used
-var guaranteedChar = [];
-
-//   todo: refactor and simplify
-//Conditional statements that add array of each type of character into array of possible characters based on user input and pushes new random character to guaranteedCharacters.
+//  adds each type of selected characters into a single array
 if (specialChar) {
-  chosenChar = chosenChar.concat(special);
-  guaranteedChar.push(special[Math.floor(Math.random() * special.length)]);
+  passChar = passChar.concat(special);
 }
 if (numberChar) {
-  chosenChar = chosenChar.concat(numbers);
-  guaranteedChar.push(numbers[Math.floor(Math.random() * numbers.length)]);
+  passChar = passChar.concat(numbers);
 }
 if (lowerChar) {
-  chosenChar = chosenChar.concat(lowercase);
-  guaranteedChar.push(lowercase[Math.floor(Math.random() * lowercase.length)]);
+  passChar = passChar.concat(lowercase);
 }
 if (upperChar) {
-  chosenChar = chosenChar.concat(uppercase);
-  guaranteedChar.push(uppercase[Math.floor(Math.random() * uppercase.length)]);
+  passChar = passChar.concat(uppercase);
 }
 
-//   todo: rename and refactor
-// For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
-var randomChar = [];
-//   todo: fix length of password
+// for loop iterates over array of selected characters and randomizes characters into a random password
+var randomPass = [];
 for (var i = 0; i < lengthChoice; i++) {
-  var index = Math.floor(Math.random() * chosenChar.length);
-  randomChar.push(chosenChar[index]);
+  var index = Math.floor(Math.random() * passChar.length);
+  randomPass.push(passChar[index]);
 }
-var replacedPosition = {};
-// While loop to ensure an index position that has already been replaced with a guaranteed character is not replaced with another guaranteed character.
-while (guaranteedChar.length > 0) {
-  var replaceChar = Math.floor(Math.random() * randomChar.length);
-  if (!replacedPosition[replaceChar]) {
-    randomChar[replaceChar] = guaranteedChar.pop();
-    replacedPosition[replaceChar] = true;
-  }
-}
-return randomChar.join("");
 }
 
 // writes password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 
