@@ -7,10 +7,9 @@ This is the mini project 03 for the UT Austin coding boot camp. I was given the 
 ## Usage
 
 This website is designed to show my proficiency in "on the job tickets" and my ability to refactor existing code while satisfying the user story and acceptance criteria. This website can be used to generate random passwords of lengths between 8 and 128 characters, while using user input to include characters of their choice (choice of lowercase, uppercase, numbers, and special characters).The external URL for this study guide is:
+https://chuca78.github.io/Mini-project-03/
+![localhost_1932_UT_Austin_Mini-project-03_index html](https://user-images.githubusercontent.com/97859682/193651453-d4ffa637-f23f-4c08-ac88-2ed2a394fb17.png)
 
-<!-- todo: provide URL and screenshot of website -->
-
-localhost_1932_UT_Austin_Mini-project-03_index.html.png
 
 ## Credits
 
