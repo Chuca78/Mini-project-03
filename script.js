@@ -44,11 +44,12 @@ if (upperChar) {
 }
 
 // for loop iterates over array of selected characters and randomizes characters into a random password
-var randomPass = [];
+var randomChar = [];
 for (var i = 0; i < lengthChoice; i++) {
   var index = Math.floor(Math.random() * passChar.length);
-  randomPass.push(passChar[index]);
+  randomChar.push(passChar[index]);
 }
+return randomChar.join("");
 }
 
 // writes password to the #password input
