@@ -24,7 +24,11 @@ if (lengthChoice){
 }
 
 // checks that user selects at least one character type
-if ([specialChar, numberChar, lowerChar, upperChar].includes(true))
+if ([specialChar, numberChar, lowerChar, upperChar].includes(true));
+else{
+  window.alert("You must choose at least one character type");
+  generatePassword();
+}
 
 //  stores types of characters user selected for password
 var passChar = [];

@@ -10,7 +10,6 @@ This website is designed to show my proficiency in "on the job tickets" and my a
 https://chuca78.github.io/Mini-project-03/
 ![localhost_1932_UT_Austin_Mini-project-03_index html](https://user-images.githubusercontent.com/97859682/193651453-d4ffa637-f23f-4c08-ac88-2ed2a394fb17.png)
 
-
 ## Credits
 
 JavaScript math.random tutorial
