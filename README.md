@@ -1,4 +1,4 @@
-# <Mini-project-03_Random-password-generator >
+# Random password generator
 
 ## Description
 
